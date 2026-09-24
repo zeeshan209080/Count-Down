@@ -39,7 +39,6 @@
     justify-content:center;
   }
 
-  /* animated background */
   .bg-aurora{
     position:fixed;
     inset:0;
@@ -97,7 +96,6 @@
     position:relative;
   }
 
-  /* ===== WELCOME / COUNTDOWN SCREEN ===== */
   #welcome-screen{ flex-direction:column; text-align:center; }
   .welcome-inner{
     max-width:720px;
@@ -199,10 +197,7 @@
     opacity:.75;
   }
 
-  /* ===== BIG COUNTDOWN 10..0 ===== */
-  #blast-screen{
-    flex-direction:column;
-  }
+  #blast-screen{ flex-direction:column; }
   .blast-number{
     font-family:'Cinzel',serif;
     font-weight:800;
@@ -233,7 +228,6 @@
     text-transform:uppercase;
   }
 
-  /* ===== LOCKER SCREEN ===== */
   #locker-screen{ flex-direction:column; }
   .locker-inner{
     max-width:560px;
@@ -380,7 +374,6 @@
     100%{ box-shadow:0 0 0 0 rgba(255,59,92,0); }
   }
 
-  /* ===== FAIL SCREEN ===== */
   #fail-screen{ flex-direction:column; }
   .fail-inner{
     max-width:480px; width:100%;
@@ -401,7 +394,6 @@
   .fail-sub{ color:var(--text-dim); font-size:14px; }
   .crack-icon{ width:70px; height:70px; opacity:.85; }
 
-  /* ===== SUCCESS SCREEN ===== */
   #success-screen{ flex-direction:column; }
   .success-inner{
     max-width:560px; width:100%;
@@ -467,7 +459,6 @@
 <canvas id="particle-canvas"></canvas>
 <canvas id="fx-canvas"></canvas>
 
-<!-- WELCOME / COUNTDOWN SCREEN -->
 <section class="screen active" id="welcome-screen">
   <div class="glass-card welcome-inner">
     <div class="badge">✨ Exclusive Reveal</div>
@@ -486,13 +477,11 @@
   </div>
 </section>
 
-<!-- BIG BLAST COUNTDOWN 10..0 -->
 <section class="screen" id="blast-screen">
   <div class="blast-number" id="blast-number">10</div>
   <div class="blast-sub">Get Ready</div>
 </section>
 
-<!-- LOCKER SCREEN -->
 <section class="screen" id="locker-screen">
   <div class="glass-card locker-inner" id="locker-card">
     <div class="lock-icon-wrap" id="lock-icon-wrap">
@@ -523,7 +512,6 @@
   </div>
 </section>
 
-<!-- FAIL SCREEN -->
 <section class="screen" id="fail-screen">
   <div class="glass-card fail-inner">
     <svg class="crack-icon" viewBox="0 0 24 24" fill="none">
@@ -536,7 +524,6 @@
   </div>
 </section>
 
-<!-- SUCCESS SCREEN -->
 <section class="screen" id="success-screen">
   <div class="glass-card success-inner">
     <div class="success-title font-title">CONGRATULATIONS! 🎉</div>
@@ -550,7 +537,6 @@
 (function(){
   "use strict";
 
-  /* ---------------- Utility: screen switching ---------------- */
   var screens = {
     welcome: document.getElementById('welcome-screen'),
     blast: document.getElementById('blast-screen'),
@@ -564,7 +550,6 @@
     });
   }
 
-  /* ---------------- Background particles ---------------- */
   var pCanvas = document.getElementById('particle-canvas');
   var pCtx = pCanvas.getContext('2d');
   var particles = [];
@@ -621,7 +606,6 @@
   }
   requestAnimationFrame(drawParticles);
 
-  /* ---------------- Web Audio (no external files) ---------------- */
   var audioCtx = null;
   function ensureAudio(){
     if(!audioCtx){
@@ -668,9 +652,12 @@
     beep(150,0.6,'sawtooth',0.1,0.15);
   }
 
-  /* ---------------- Countdown Logic ---------------- */
-  // Target: 25 September 2026, 10:00 AM Pakistan Standard Time (UTC+05:00)
-  var TARGET_TIME = new Date("2026-09-25T10:00:00+05:00").getTime();
+  /* Real target: 25 September 2026, 10:00 AM Pakistan Standard Time (UTC+05:00) */
+  var REAL_TARGET_TIME = new Date("2026-09-25T10:00:00+05:00").getTime();
+
+  /* Testing override: open page with ?test=1 to preview live counter with a short 60s countdown */
+  var params = new URLSearchParams(window.location.search);
+  var TARGET_TIME = params.get('test') ? (Date.now() + 60000) : REAL_TARGET_TIME;
 
   var elDays = document.getElementById('cd-days');
   var elHours = document.getElementById('cd-hours');
@@ -710,7 +697,6 @@
   updateCountdown();
   countdownTimerId = setInterval(updateCountdown, 1000);
 
-  /* ---------------- Blast 10 -> 0 sequence ---------------- */
   var blastEl = document.getElementById('blast-number');
   var blastSubEl = document.querySelector('.blast-sub');
 
@@ -731,7 +717,6 @@
       var val = seq[idx];
       blastEl.textContent = val;
       blastEl.classList.remove('zero');
-      // restart animation
       blastEl.style.animation = 'none';
       void blastEl.offsetWidth;
       blastEl.style.animation = '';
@@ -751,7 +736,6 @@
     step();
   }
 
-  /* ---------------- FX Canvas: confetti / bursts ---------------- */
   var fxCanvas = document.getElementById('fx-canvas');
   var fxCtx = fxCanvas.getContext('2d');
   var confetti = [];
@@ -834,8 +818,7 @@
   }
   requestAnimationFrame(drawFx);
 
-  /* ---------------- Locker Logic ---------------- */
-  var SECRET_CODE = String.fromCharCode(56,48,52); // generated, not literal in source
+  var SECRET_CODE = String.fromCharCode(56,48,52);
   var MAX_ATTEMPTS = 2;
   var attemptsUsed = 0;
   var currentDigits = '';
@@ -912,7 +895,6 @@
       return;
     }
 
-    // wrong attempt
     errorSound();
     setSlotsState('error');
     lockerCard.classList.remove('locker-shake','flash-red');
@@ -968,7 +950,6 @@
 
   refreshSlots();
 
-  /* unlock audio context on first interaction (autoplay policies) */
   document.addEventListener('click', ensureAudio, { once:true });
   document.addEventListener('touchstart', ensureAudio, { once:true });
 
