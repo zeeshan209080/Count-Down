@@ -4,848 +4,1701 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Something Special From Muhammad Zeeshan 🎁</title>
+<title>Something Special 🎁</title>
 
 <style>
+
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  min-height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
-  color: white;
-  background:
-    radial-gradient(circle at 20% 10%, #54208a 0%, transparent 35%),
-    radial-gradient(circle at 80% 90%, #9b185f 0%, transparent 35%),
-    linear-gradient(135deg, #08020f, #16051f, #08020f);
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    min-height: 100vh;
 
-  padding: 20px;
-  overflow-x: hidden;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            #5c218f 0%,
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 80% 90%,
+            #a51b63 0%,
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #07020d,
+            #17051f,
+            #07020d
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    overflow-x: hidden;
 }
+
+
+/* MAIN */
 
 .container {
-  width: 100%;
-  max-width: 720px;
-  text-align: center;
-  position: relative;
-  z-index: 5;
+
+    width: 100%;
+
+    max-width: 720px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 5;
 }
+
+
+/* SCREENS */
 
 .screen {
-  display: none;
-  animation: fadeIn 0.8s ease;
+
+    display: none;
+
+    animation:
+        fadeIn
+        0.8s
+        ease;
 }
+
 
 .screen.active {
-  display: block;
+
+    display: block;
 }
+
+
+/* CARD */
 
 .card {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.16);
-  border-radius: 28px;
-  padding: 35px 25px;
-  backdrop-filter: blur(16px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.16
+        );
+
+    border-radius: 28px;
+
+    padding: 35px 25px;
+
+    backdrop-filter: blur(16px);
+
+    box-shadow:
+        0 20px 60px
+        rgba(
+            0,
+            0,
+            0,
+            0.45
+        );
 }
 
-.crown {
-  font-size: 65px;
-  animation: float 2s infinite ease-in-out;
+
+/* EMOJI */
+
+.main-emoji {
+
+    font-size: 70px;
+
+    animation:
+        float
+        2s
+        infinite
+        ease-in-out;
 }
+
+
+/* HEADINGS */
 
 h1 {
-  font-size: clamp(32px, 8vw, 62px);
-  margin: 15px 0;
+
+    font-size:
+        clamp(
+            34px,
+            8vw,
+            62px
+        );
+
+    margin:
+        15px 0;
+
+    font-weight: 800;
 }
+
 
 h2 {
-  font-size: clamp(30px, 7vw, 55px);
-  margin-bottom: 15px;
+
+    font-size:
+        clamp(
+            30px,
+            7vw,
+            55px
+        );
+
+    margin-bottom: 15px;
 }
 
-p {
-  line-height: 1.6;
-}
 
 .special {
-  font-size: 19px;
-  opacity: .85;
+
+    font-size: 19px;
+
+    opacity: 0.85;
+
+    line-height: 1.6;
 }
+
 
 .zeeshan {
-  font-size: 26px;
-  font-weight: bold;
-  margin-top: 15px;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    margin-top: 18px;
 }
+
+
+/* COUNTDOWN */
 
 .countdown {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-top: 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
+    gap: 12px;
+
+    margin-top: 30px;
 }
+
 
 .time-box {
-  background: rgba(255,255,255,0.09);
-  border-radius: 18px;
-  padding: 18px 8px;
-  border: 1px solid rgba(255,255,255,0.12);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.09
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.12
+        );
+
+    border-radius: 18px;
+
+    padding: 20px 8px;
 }
+
 
 .number {
-  font-size: clamp(28px, 7vw, 50px);
-  font-weight: 800;
+
+    font-size:
+        clamp(
+            28px,
+            7vw,
+            50px
+        );
+
+    font-weight: 800;
 }
+
 
 .label {
-  margin-top: 5px;
-  font-size: 11px;
-  letter-spacing: 2px;
-  opacity: .65;
+
+    margin-top: 6px;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.65;
 }
 
-.loader {
-  font-size: 70px;
-  margin: 20px 0;
-  animation: pulse 1s infinite;
+
+/* WAITING */
+
+.wait-icon {
+
+    font-size: 75px;
+
+    animation:
+        pulse
+        1s
+        infinite;
 }
+
 
 .wait-number {
-  font-size: 80px;
-  font-weight: bold;
+
+    font-size: 85px;
+
+    font-weight: bold;
+
+    margin: 15px 0;
 }
+
+
+/* LOCKER */
 
 .locker {
-  font-size: 100px;
-  margin-bottom: 15px;
-  animation: shake 2s infinite;
+
+    font-size: 105px;
+
+    margin-bottom: 15px;
+
+    animation:
+        shake
+        2s
+        infinite;
 }
+
 
 input {
-  width: 180px;
-  text-align: center;
-  font-size: 30px;
-  letter-spacing: 12px;
-  padding: 14px 12px;
-  border-radius: 15px;
-  border: 2px solid rgba(255,255,255,.25);
-  background: rgba(0,0,0,.3);
-  color: white;
-  outline: none;
-  margin: 20px 0;
+
+    width: 190px;
+
+    text-align: center;
+
+    font-size: 32px;
+
+    letter-spacing: 12px;
+
+    padding: 14px 10px;
+
+    border-radius: 15px;
+
+    border:
+        2px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.25
+        );
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.30
+        );
+
+    color: white;
+
+    outline: none;
+
+    margin: 22px 0;
 }
+
 
 input:focus {
-  border-color: #fff;
+
+    border-color: white;
 }
+
 
 button {
-  border: none;
-  padding: 14px 28px;
-  border-radius: 14px;
-  background: white;
-  color: #18051f;
-  font-size: 17px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: .2s;
+
+    border: none;
+
+    padding:
+        14px
+        28px;
+
+    border-radius: 14px;
+
+    background: white;
+
+    color: #18051f;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        0.2s;
 }
+
 
 button:hover {
-  transform: translateY(-2px);
+
+    transform:
+        translateY(-2px);
 }
+
 
 .error {
-  color: #ff9a9a;
-  margin-top: 12px;
-  min-height: 24px;
+
+    color:
+        #ff9a9a;
+
+    margin-top: 13px;
+
+    min-height: 25px;
 }
 
-.success {
-  font-size: 20px;
-  margin: 15px 0 25px;
-}
+
+/* SUCCESS */
 
 .party {
-  font-size: 55px;
-  margin: 15px 0;
+
+    font-size: 58px;
+
+    margin: 15px 0;
 }
+
+
+.success {
+
+    font-size: 20px;
+
+    line-height: 1.6;
+
+    margin:
+        15px
+        0
+        25px;
+}
+
 
 .only-one {
-  margin-top: 20px;
-  font-size: 13px;
-  opacity: .55;
+
+    margin-top: 20px;
+
+    font-size: 13px;
+
+    opacity: 0.55;
+
+    line-height: 1.5;
 }
 
-.confetti {
-  position: fixed;
-  top: -30px;
-  font-size: 25px;
-  animation: fall 4s linear forwards;
-  z-index: 20;
-  pointer-events: none;
-}
+
+/* FOOTER */
 
 .footer {
-  margin-top: 25px;
-  opacity: .45;
-  font-size: 12px;
+
+    margin-top: 30px;
+
+    font-size: 12px;
+
+    opacity: 0.45;
 }
+
+
+/* CONFETTI */
+
+.confetti {
+
+    position: fixed;
+
+    top: -30px;
+
+    font-size: 25px;
+
+    animation:
+        fall
+        4s
+        linear
+        forwards;
+
+    z-index: 20;
+
+    pointer-events: none;
+}
+
+
+/* ANIMATIONS */
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
 }
+
 
 @keyframes float {
-  0%,100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+    }
+
+    50% {
+
+        transform:
+            translateY(-12px);
+    }
 }
+
 
 @keyframes pulse {
-  0%,100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.12);
-  }
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+    }
+
+    50% {
+
+        transform:
+            scale(1.12);
+    }
 }
+
 
 @keyframes shake {
-  0%,100% {
-    transform: rotate(0);
-  }
-  25% {
-    transform: rotate(-5deg);
-  }
-  75% {
-    transform: rotate(5deg);
-  }
+
+    0%,
+    100% {
+
+        transform:
+            rotate(0);
+    }
+
+    25% {
+
+        transform:
+            rotate(-5deg);
+    }
+
+    75% {
+
+        transform:
+            rotate(5deg);
+    }
 }
+
 
 @keyframes fall {
-  to {
-    transform: translateY(110vh) rotate(720deg);
-    opacity: 0;
-  }
+
+    to {
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
 }
 
-@media(max-width: 500px) {
 
-  .card {
-    padding: 28px 17px;
-  }
+/* MOBILE */
 
-  .countdown {
-    grid-template-columns: repeat(2, 1fr);
-  }
+@media(
+    max-width: 500px
+) {
 
-  .locker {
-    font-size: 80px;
-  }
+    .card {
+
+        padding:
+            28px
+            17px;
+    }
+
+
+    .countdown {
+
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+    }
+
+
+    .locker {
+
+        font-size: 80px;
+    }
+
+
+    .special {
+
+        font-size: 16px;
+    }
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <div class="container">
 
-  <!-- SCREEN 1 -->
-  <section id="intro" class="screen active">
-    <div class="card">
 
-      <div class="crown">🎁</div>
+<!-- =========================================
+     INTRO
+========================================= -->
 
-      <h1>Something Special</h1>
-
-      <p class="special">
-        A little surprise has been prepared
-        especially for you.
-      </p>
-
-      <div class="zeeshan">
-        From Muhammad Zeeshan ❤️
-      </div>
-
-      <div class="footer">
-        Don't leave... something special is coming.
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- SCREEN 2 -->
-  <section id="countdownScreen" class="screen">
+<section
+    id="intro"
+    class="screen active"
+>
 
     <div class="card">
 
-      <div class="crown">🎂</div>
-
-      <h2>My Birthday</h2>
-
-      <p class="special">
-        The special moment is getting closer...
-      </p>
-
-      <div class="countdown">
-
-        <div class="time-box">
-          <div class="number" id="days">00</div>
-          <div class="label">DAYS</div>
+        <div class="main-emoji">
+            🎁
         </div>
 
-        <div class="time-box">
-          <div class="number" id="hours">00</div>
-          <div class="label">HOURS</div>
+        <h1>
+            Something Special
+        </h1>
+
+        <p class="special">
+            A little surprise has been
+            prepared especially for you.
+        </p>
+
+        <div class="zeeshan">
+            From Muhammad Zeeshan ❤️
         </div>
 
-        <div class="time-box">
-          <div class="number" id="minutes">00</div>
-          <div class="label">MINUTES</div>
+        <div class="footer">
+            Don't leave...
+            something special is coming.
         </div>
 
-        <div class="time-box">
-          <div class="number" id="seconds">00</div>
-          <div class="label">SECONDS</div>
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     COUNTDOWN
+========================================= -->
+
+<section
+    id="countdownScreen"
+    class="screen"
+>
+
+    <div class="card">
+
+        <div class="main-emoji">
+            ✨
         </div>
 
-      </div>
+        <p class="special">
+            Something special is waiting...
+        </p>
 
-      <div class="footer">
-        Live countdown • Pakistan Time 🇵🇰
-      </div>
+
+        <div class="countdown">
+
+
+            <div class="time-box">
+
+                <div
+                    class="number"
+                    id="days"
+                >
+                    00
+                </div>
+
+                <div class="label">
+                    DAYS
+                </div>
+
+            </div>
+
+
+
+            <div class="time-box">
+
+                <div
+                    class="number"
+                    id="hours"
+                >
+                    00
+                </div>
+
+                <div class="label">
+                    HOURS
+                </div>
+
+            </div>
+
+
+
+            <div class="time-box">
+
+                <div
+                    class="number"
+                    id="minutes"
+                >
+                    00
+                </div>
+
+                <div class="label">
+                    MINUTES
+                </div>
+
+            </div>
+
+
+
+            <div class="time-box">
+
+                <div
+                    class="number"
+                    id="seconds"
+                >
+                    00
+                </div>
+
+                <div class="label">
+                    SECONDS
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer">
+            Live countdown
+        </div>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- SCREEN 3 -->
-  <section id="waitingScreen" class="screen">
+
+<!-- =========================================
+     10 SECOND WAIT
+========================================= -->
+
+<section
+    id="waitingScreen"
+    class="screen"
+>
 
     <div class="card">
 
-      <div class="loader">🎁</div>
+        <div class="wait-icon">
+            🎁
+        </div>
 
-      <h2>WAIT...</h2>
+        <h2>
+            WAIT...
+        </h2>
 
-      <p class="special">
-        Something special is unlocking...
-      </p>
+        <p class="special">
+            Your surprise is unlocking...
+        </p>
 
-      <div class="wait-number" id="waitNumber">
-        10
-      </div>
+        <div
+            class="wait-number"
+            id="waitNumber"
+        >
+            10
+        </div>
 
-      <p>
-        Don't close this page 👀
-      </p>
+        <p>
+            Don't close this page 👀
+        </p>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- SCREEN 4 -->
-  <section id="lockerScreen" class="screen">
+
+<!-- =========================================
+     LOCKER
+========================================= -->
+
+<section
+    id="lockerScreen"
+    class="screen"
+>
 
     <div class="card">
 
-      <div class="locker">🔐</div>
+        <div class="locker">
+            🔐
+        </div>
 
-      <h2>GUESS THE CODE</h2>
+        <h2>
+            GUESS THE CODE
+        </h2>
 
-      <p class="special">
-        Enter the 3-digit code in the locker room.
-      </p>
+        <p class="special">
+            Enter the 3-digit code
+            in the locker room.
+        </p>
 
-      <p>
-        Hint: It's a secret between you and Zeeshan 👀
-      </p>
+        <br>
 
-      <input
-        id="codeInput"
-        type="text"
-        inputmode="numeric"
-        maxlength="3"
-        placeholder="___"
-        autocomplete="off"
-      >
+        <p>
+            🔎 Can you crack it?
+        </p>
 
-      <br>
 
-      <button id="unlockButton">
-        🔓 UNLOCK
-      </button>
+        <input
+            id="codeInput"
+            type="text"
+            inputmode="numeric"
+            maxlength="3"
+            placeholder="___"
+            autocomplete="off"
+        >
 
-      <div id="errorMessage" class="error"></div>
 
-      <div class="only-one">
-        ⚠️ Only one successful unlock is accepted.
-      </div>
+        <br>
+
+
+        <button
+            id="unlockButton"
+        >
+            🔓 UNLOCK
+        </button>
+
+
+        <div
+            id="errorMessage"
+            class="error"
+        ></div>
+
+
+        <div class="only-one">
+
+            ⚠️ Only one successful
+            unlock is accepted.
+
+            <br>
+
+            First come,
+            first enjoy. 🎉
+
+        </div>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- SCREEN 5 -->
-  <section id="successScreen" class="screen">
+
+<!-- =========================================
+     SUCCESS
+========================================= -->
+
+<section
+    id="successScreen"
+    class="screen"
+>
 
     <div class="card">
 
-      <div class="party">
-        🎉🎂🥳
-      </div>
 
-      <h2>LOCKER OPEN!</h2>
+        <div class="party">
+            🎉🎂🥳
+        </div>
 
-      <div class="success">
-        Congratulations! 🎊
-        <br><br>
-        You cracked the secret code.
-      </div>
 
-      <p>
-        <strong>804</strong> was the correct code.
-      </p>
+        <h2>
+            LOCKER OPEN!
+        </h2>
 
-      <br>
 
-      <p class="special">
-        Take a screenshot of this screen
-        and send it to Muhammad Zeeshan
-        for your party! 🎁
-      </p>
+        <div class="success">
 
-      <br>
+            🎊 Congratulations! 🎊
 
-      <button id="whatsappButton">
-        📱 SEND TO MUHAMMAD ZEESHAN
-      </button>
+            <br><br>
 
-      <div class="footer">
-        Enjoy the party! ❤️
-      </div>
+            You cracked
+            the secret code.
+
+        </div>
+
+
+        <p>
+            The correct code was:
+        </p>
+
+
+        <h1>
+            804
+        </h1>
+
+
+        <p class="special">
+
+            Take a screenshot
+            of this screen 📸
+
+            <br><br>
+
+            Then send it to
+            <strong>
+                Muhammad Zeeshan
+            </strong>
+
+            for the party! 🎁
+
+        </p>
+
+
+        <br>
+
+
+        <button
+            id="whatsappButton"
+        >
+            📱 SEND TO MUHAMMAD ZEESHAN
+        </button>
+
+
+        <div class="footer">
+
+            Open locker and enjoy party
+            from Muhammad Zeeshan ❤️
+
+            <br><br>
+
+            On this special day only ✨
+
+        </div>
+
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- SCREEN 6 -->
-  <section id="alreadyUsedScreen" class="screen">
+
+<!-- =========================================
+     ALREADY CLAIMED
+========================================= -->
+
+<section
+    id="alreadyUsedScreen"
+    class="screen"
+>
 
     <div class="card">
 
-      <div class="locker">🔒</div>
+        <div class="locker">
+            🔒
+        </div>
 
-      <h2>LOCKER CLOSED</h2>
 
-      <p class="special">
-        Sorry! The special locker has already
-        been claimed.
-      </p>
+        <h2>
+            LOCKER CLOSED
+        </h2>
 
-      <p style="margin-top:20px;">
-        First come, first enjoy. 🎉
-      </p>
+
+        <p class="special">
+
+            Sorry!
+
+            <br><br>
+
+            This special locker
+            has already been claimed.
+
+        </p>
+
+
+        <p
+            style="
+                margin-top:20px;
+            "
+        >
+
+            First come,
+            first enjoy. 🎉
+
+        </p>
+
+
+        <div class="footer">
+
+            Thank you for playing ❤️
+
+        </div>
 
     </div>
 
-  </section>
+</section>
+
 
 </div>
 
 
+
 <script>
 
+
 /*
-=================================================
- BIRTHDAY SETTINGS
-=================================================
+==================================================
+ SETTINGS
+==================================================
+*/
+
+
+/*
+TARGET TIME
+
+25 September 2026
+12:05 AM
+Pakistan Time
+
+UTC +05:00
 */
 
 const BIRTHDAY_TIME =
-  new Date("2026-09-25T00:00:00+05:00").getTime();
-
-const CORRECT_CODE = "804";
-
-const LOCKER_CLAIM_KEY =
-  "muhammad_zeeshan_birthday_locker_claimed";
+    new Date(
+        "2026-09-25T00:05:00+05:00"
+    ).getTime();
 
 
 /*
-=================================================
- SCREEN SYSTEM
-=================================================
+CORRECT LOCKER CODE
 */
+
+const CORRECT_CODE =
+    "804";
+
+
+/*
+LOCAL CLAIM KEY
+*/
+
+const LOCKER_CLAIM_KEY =
+    "muhammad_zeeshan_birthday_locker_claimed";
+
+
+
+/*
+==================================================
+ SCREEN FUNCTION
+==================================================
+*/
+
 
 function showScreen(id) {
 
-  document.querySelectorAll(".screen")
-    .forEach(screen => {
-      screen.classList.remove("active");
-    });
+    document
+        .querySelectorAll(".screen")
+        .forEach(
+            screen => {
 
-  document.getElementById(id)
-    .classList.add("active");
+                screen.classList
+                    .remove("active");
+
+            }
+        );
+
+
+    document
+        .getElementById(id)
+        .classList
+        .add("active");
 }
 
 
+
 /*
-=================================================
- INTRO SCREEN
-=================================================
+==================================================
+ INTRO
+==================================================
 */
 
-setTimeout(() => {
 
-  if (Date.now() < BIRTHDAY_TIME) {
+setTimeout(
+    () => {
 
-    showScreen("countdownScreen");
+        if (
+            Date.now()
+            <
+            BIRTHDAY_TIME
+        ) {
 
-  } else {
+            showScreen(
+                "countdownScreen"
+            );
 
-    startWaiting();
+        }
 
-  }
+        else {
 
-}, 2500);
+            startWaiting();
+
+        }
+
+    },
+    2500
+);
+
 
 
 /*
-=================================================
+==================================================
  LIVE COUNTDOWN
-=================================================
+==================================================
 */
+
 
 function updateCountdown() {
 
-  const now = Date.now();
-
-  const difference =
-    BIRTHDAY_TIME - now;
+    const now =
+        Date.now();
 
 
-  if (difference <= 0) {
-
-    clearInterval(countdownTimer);
-
-    startWaiting();
-
-    return;
-  }
+    const difference =
+        BIRTHDAY_TIME
+        -
+        now;
 
 
-  const totalSeconds =
-    Math.floor(difference / 1000);
+    /*
+    TIME FINISHED
+    */
+
+    if (
+        difference <= 0
+    ) {
+
+        clearInterval(
+            countdownTimer
+        );
 
 
-  const days =
-    Math.floor(totalSeconds / 86400);
+        startWaiting();
 
-  const hours =
-    Math.floor(
-      (totalSeconds % 86400) / 3600
-    );
-
-  const minutes =
-    Math.floor(
-      (totalSeconds % 3600) / 60
-    );
-
-  const seconds =
-    totalSeconds % 60;
+        return;
+    }
 
 
-  document.getElementById("days")
-    .textContent =
-    String(days).padStart(2,"0");
+    /*
+    CALCULATE TIME
+    */
 
-  document.getElementById("hours")
-    .textContent =
-    String(hours).padStart(2,"0");
+    const totalSeconds =
+        Math.floor(
+            difference / 1000
+        );
 
-  document.getElementById("minutes")
-    .textContent =
-    String(minutes).padStart(2,"0");
 
-  document.getElementById("seconds")
-    .textContent =
-    String(seconds).padStart(2,"0");
+    const days =
+        Math.floor(
+            totalSeconds / 86400
+        );
+
+
+    const hours =
+        Math.floor(
+            (
+                totalSeconds % 86400
+            ) / 3600
+        );
+
+
+    const minutes =
+        Math.floor(
+            (
+                totalSeconds % 3600
+            ) / 60
+        );
+
+
+    const seconds =
+        totalSeconds % 60;
+
+
+
+    /*
+    DISPLAY
+    */
+
+    document
+        .getElementById("days")
+        .textContent =
+        String(days)
+        .padStart(
+            2,
+            "0"
+        );
+
+
+    document
+        .getElementById("hours")
+        .textContent =
+        String(hours)
+        .padStart(
+            2,
+            "0"
+        );
+
+
+    document
+        .getElementById("minutes")
+        .textContent =
+        String(minutes)
+        .padStart(
+            2,
+            "0"
+        );
+
+
+    document
+        .getElementById("seconds")
+        .textContent =
+        String(seconds)
+        .padStart(
+            2,
+            "0"
+        );
 }
 
 
+/*
+START COUNTDOWN
+*/
+
 const countdownTimer =
-  setInterval(updateCountdown, 1000);
+    setInterval(
+        updateCountdown,
+        1000
+    );
+
 
 updateCountdown();
 
 
+
 /*
-=================================================
- 10 SECOND WAITING
-=================================================
+==================================================
+ WAITING 10 SECONDS
+==================================================
 */
 
-let waitingStarted = false;
+
+let waitingStarted =
+    false;
+
 
 function startWaiting() {
 
-  if (waitingStarted) return;
+    if (
+        waitingStarted
+    ) {
 
-  waitingStarted = true;
+        return;
 
-  showScreen("waitingScreen");
-
-  let number = 10;
-
-  document.getElementById("waitNumber")
-    .textContent = number;
+    }
 
 
-  const waitingTimer =
-    setInterval(() => {
-
-      number--;
-
-      document.getElementById("waitNumber")
-        .textContent = number;
+    waitingStarted =
+        true;
 
 
-      if (number <= 0) {
+    showScreen(
+        "waitingScreen"
+    );
 
-        clearInterval(waitingTimer);
 
-        showLocker();
+    let number =
+        10;
 
-      }
 
-    }, 1000);
+    document
+        .getElementById(
+            "waitNumber"
+        )
+        .textContent =
+        number;
+
+
+
+    const waitingTimer =
+        setInterval(
+            () => {
+
+                number--;
+
+
+                document
+                    .getElementById(
+                        "waitNumber"
+                    )
+                    .textContent =
+                    number;
+
+
+
+                if (
+                    number <= 0
+                ) {
+
+                    clearInterval(
+                        waitingTimer
+                    );
+
+
+                    showLocker();
+
+                }
+
+            },
+            1000
+        );
 }
 
 
+
 /*
-=================================================
+==================================================
  LOCKER
-=================================================
+==================================================
 */
+
 
 function showLocker() {
 
-  showScreen("lockerScreen");
+    showScreen(
+        "lockerScreen"
+    );
 
-  document.getElementById("codeInput")
-    .focus();
+
+    document
+        .getElementById(
+            "codeInput"
+        )
+        .focus();
 }
 
 
+
 /*
-=================================================
- UNLOCK
-=================================================
+==================================================
+ UNLOCK BUTTON
+==================================================
+*/
+
+
+document
+    .getElementById(
+        "unlockButton"
+    )
+    .addEventListener(
+        "click",
+        unlockLocker
+    );
+
+
+
+/*
+ENTER KEY
 */
 
 document
-  .getElementById("unlockButton")
-  .addEventListener("click", unlockLocker);
+    .getElementById(
+        "codeInput"
+    )
+    .addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key
+                ===
+                "Enter"
+            ) {
+
+                unlockLocker();
+
+            }
+
+        }
+    );
 
 
-document
-  .getElementById("codeInput")
-  .addEventListener("keydown", function(event) {
 
-    if (event.key === "Enter") {
-      unlockLocker();
-    }
-
-  });
+/*
+==================================================
+ UNLOCK LOGIC
+==================================================
+*/
 
 
 function unlockLocker() {
 
-  const input =
-    document.getElementById("codeInput")
-      .value
-      .trim();
+
+    const input =
+        document
+            .getElementById(
+                "codeInput"
+            )
+            .value
+            .trim();
 
 
-  const error =
-    document.getElementById("errorMessage");
+    const error =
+        document
+            .getElementById(
+                "errorMessage"
+            );
 
 
-  /*
-    Local first-come protection.
-  */
 
-  if (
-    localStorage.getItem(LOCKER_CLAIM_KEY)
-    === "true"
-  ) {
+    /*
+    CHECK IF ALREADY CLAIMED
+    */
 
-    showScreen("alreadyUsedScreen");
+    if (
+        localStorage.getItem(
+            LOCKER_CLAIM_KEY
+        )
+        ===
+        "true"
+    ) {
 
-    return;
-  }
+        showScreen(
+            "alreadyUsedScreen"
+        );
 
-
-  if (!/^\d{3}$/.test(input)) {
-
-    error.textContent =
-      "Please enter exactly 3 digits.";
-
-    return;
-  }
+        return;
+    }
 
 
-  if (input !== CORRECT_CODE) {
 
-    error.textContent =
-      "❌ Wrong code! Try again.";
+    /*
+    ONLY 3 DIGITS
+    */
 
-    document.getElementById("codeInput")
-      .value = "";
+    if (
+        !/^\d{3}$/.test(
+            input
+        )
+    ) {
 
-    return;
-  }
+        error.textContent =
+            "Please enter exactly 3 digits.";
 
-
-  /*
-    Correct code.
-  */
-
-  localStorage.setItem(
-    LOCKER_CLAIM_KEY,
-    "true"
-  );
+        return;
+    }
 
 
-  showScreen("successScreen");
 
-  createConfetti();
+    /*
+    WRONG CODE
+    */
+
+    if (
+        input
+        !==
+        CORRECT_CODE
+    ) {
+
+        error.textContent =
+            "❌ Wrong code! Try again.";
+
+        document
+            .getElementById(
+                "codeInput"
+            )
+            .value =
+            "";
+
+        return;
+    }
+
+
+
+    /*
+    CORRECT CODE
+    */
+
+    localStorage.setItem(
+        LOCKER_CLAIM_KEY,
+        "true"
+    );
+
+
+    /*
+    SHOW SUCCESS
+    */
+
+    showScreen(
+        "successScreen"
+    );
+
+
+    /*
+    CONFETTI
+    */
+
+    createConfetti();
 
 }
 
 
+
 /*
-=================================================
+==================================================
  CONFETTI
-=================================================
+==================================================
 */
+
 
 function createConfetti() {
 
-  const emojis = [
-    "🎉",
-    "🎊",
-    "🎈",
-    "✨",
-    "🥳",
-    "🎂",
-    "❤️"
-  ];
+
+    const emojis = [
+
+        "🎉",
+        "🎊",
+        "🎈",
+        "✨",
+        "🥳",
+        "🎂",
+        "❤️"
+
+    ];
 
 
-  for (let i = 0; i < 45; i++) {
-
-    const item =
-      document.createElement("div");
-
-    item.className = "confetti";
-
-    item.textContent =
-      emojis[
-        Math.floor(
-          Math.random() * emojis.length
-        )
-      ];
+    for (
+        let i = 0;
+        i < 45;
+        i++
+    ) {
 
 
-    item.style.left =
-      Math.random() * 100 + "%";
-
-    item.style.animationDelay =
-      Math.random() * 2 + "s";
-
-
-    document.body.appendChild(item);
+        const item =
+            document
+                .createElement(
+                    "div"
+                );
 
 
-    setTimeout(() => {
-      item.remove();
-    }, 6000);
+        item.className =
+            "confetti";
 
-  }
+
+        item.textContent =
+            emojis[
+                Math.floor(
+                    Math.random()
+                    *
+                    emojis.length
+                )
+            ];
+
+
+        item.style.left =
+            Math.random()
+            *
+            100
+            +
+            "%";
+
+
+        item.style.animationDelay =
+            Math.random()
+            *
+            2
+            +
+            "s";
+
+
+        document
+            .body
+            .appendChild(
+                item
+            );
+
+
+        setTimeout(
+            () => {
+
+                item.remove();
+
+            },
+            6000
+        );
+
+    }
 
 }
 
 
+
 /*
-=================================================
- WHATSAPP BUTTON
-=================================================
+==================================================
+ WHATSAPP
+==================================================
 */
 
+
 document
-  .getElementById("whatsappButton")
-  .addEventListener("click", function() {
-
-    /*
-      IMPORTANT:
-      Replace this number with YOUR WhatsApp number.
-
-      Pakistan format:
-      923001234567
-
-      Do NOT put + or spaces.
-    */
-
-    const zeeshanNumber =
-      "923001234567";
+    .getElementById(
+        "whatsappButton"
+    )
+    .addEventListener(
+        "click",
+        function() {
 
 
-    const message =
-      "🎉 I OPENED THE BIRTHDAY LOCKER! 🎂\n\n" +
-      "Code: 804\n" +
-      "Congratulations! 🥳\n\n" +
-      "I have taken a screenshot. " +
-      "Sending it to Muhammad Zeeshan for the party! 🎁";
+            /*
+            =====================================
+            PUT YOUR WHATSAPP NUMBER HERE
+            =====================================
+
+            Example:
+
+            0300 1234567
+
+            becomes:
+
+            923001234567
+
+            No +
+            No spaces
+            No -
+            */
 
 
-    const whatsappURL =
-      "https://wa.me/" +
-      zeeshanNumber +
-      "?text=" +
-      encodeURIComponent(message);
+            const zeeshanNumber =
+                "923001234567";
 
 
-    window.open(
-      whatsappURL,
-      "_blank"
+
+            /*
+            MESSAGE
+            */
+
+
+            const message =
+
+                "🎉 I OPENED THE BIRTHDAY LOCKER! 🎂\n\n"
+
+                +
+
+                "🔐 Code: 804\n\n"
+
+                +
+
+                "🥳 Congratulations!\n\n"
+
+                +
+
+                "📸 I have taken a screenshot "
+                +
+                "and I am sending it to "
+                +
+                "Muhammad Zeeshan "
+                +
+                "for the party! 🎁";
+
+
+
+            /*
+            WHATSAPP LINK
+            */
+
+
+            const whatsappURL =
+
+                "https://wa.me/"
+                +
+                zeeshanNumber
+                +
+                "?text="
+                +
+                encodeURIComponent(
+                    message
+                );
+
+
+
+            /*
+            OPEN WHATSAPP
+            */
+
+            window.open(
+                whatsappURL,
+                "_blank"
+            );
+
+        }
     );
-
-  });
 
 </script>
 
