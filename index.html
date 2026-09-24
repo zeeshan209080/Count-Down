@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>My Birthday Countdown 🎂</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, #3b1b68 0%, #140b27 45%, #05030b 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 700px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .emoji {
+      font-size: 70px;
+      margin-bottom: 10px;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    h1 {
+      font-size: clamp(32px, 8vw, 64px);
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      opacity: 0.75;
+      margin-bottom: 35px;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .box {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 22px 10px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    }
+
+    .number {
+      font-size: clamp(30px, 8vw, 55px);
+      font-weight: 800;
+    }
+
+    .label {
+      margin-top: 6px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.65;
+    }
+
+    .birthday {
+      display: none;
+    }
+
+    .birthday.show {
+      display: block;
+      animation: birthdayIn 1s ease forwards;
+    }
+
+    .birthday h2 {
+      font-size: clamp(40px, 10vw, 80px);
+      margin-bottom: 15px;
+    }
+
+    .birthday p {
+      font-size: 22px;
+      opacity: 0.85;
+    }
+
+    .footer {
+      margin-top: 35px;
+      font-size: 13px;
+      opacity: 0.5;
+    }
+
+    .balloon {
+      position: fixed;
+      font-size: 35px;
+      animation: rise linear infinite;
+      opacity: 0.7;
+    }
+
+    .b1 { left: 8%; bottom: -80px; animation-duration: 8s; }
+    .b2 { left: 25%; bottom: -80px; animation-duration: 11s; animation-delay: 2s; }
+    .b3 { right: 20%; bottom: -80px; animation-duration: 9s; animation-delay: 1s; }
+    .b4 { right: 7%; bottom: -80px; animation-duration: 12s; animation-delay: 3s; }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes birthdayIn {
+      from {
+        opacity: 0;
+        transform: scale(0.7);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes rise {
+      from {
+        transform: translateY(0) rotate(0deg);
+      }
+      to {
+        transform: translateY(-120vh) rotate(15deg);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .countdown {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .box {
+        padding: 18px 8px;
+      }
+
+      .subtitle {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="balloon b1">🎈</div>
+  <div class="balloon b2">🎈</div>
+  <div class="balloon b3">🎈</div>
+  <div class="balloon b4">🎈</div>
+
+  <main class="container">
+
+    <!-- COUNTDOWN SCREEN -->
+    <section id="countdownScreen">
+
+      <div class="emoji">🎂</div>
+
+      <h1>My Birthday</h1>
+
+      <div class="subtitle">
+        Countdown to 25 September 🎉
+      </div>
+
+      <div class="countdown">
+
+        <div class="box">
+          <div class="number" id="days">00</div>
+          <div class="label">Days</div>
+        </div>
+
+        <div class="box">
+          <div class="number" id="hours">00</div>
+          <div class="label">Hours</div>
+        </div>
+
+        <div class="box">
+          <div class="number" id="minutes">00</div>
+          <div class="label">Minutes</div>
+        </div>
+
+        <div class="box">
+          <div class="number" id="seconds">00</div>
+          <div class="label">Seconds</div>
+        </div>
+
+      </div>
+
+      <div class="footer">
+        Live countdown • Pakistan Time 🇵🇰
+      </div>
+
+    </section>
+
+
+    <!-- BIRTHDAY SCREEN -->
+    <section id="birthdayScreen" class="birthday">
+
+      <div class="emoji">🎉🎂🎈</div>
+
+      <h2>HAPPY BIRTHDAY<br>TO ME! 🥳</h2>
+
+      <p>
+        25 September 2026 ✨
+      </p>
+
+      <div class="footer">
+        Another year, another chapter ❤️
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script>
+
+    /*
+      TARGET:
+      25 September 2026
+      12:00 AM
+      Pakistan Time (UTC+5)
+
+      ISO format:
+      2026-09-25T00:00:00+05:00
+    */
+
+    const birthdayDate = new Date(
+      "2026-09-25T00:00:00+05:00"
+    ).getTime();
+
+
+    const countdownScreen =
+      document.getElementById("countdownScreen");
+
+    const birthdayScreen =
+      document.getElementById("birthdayScreen");
+
+    const daysElement =
+      document.getElementById("days");
+
+    const hoursElement =
+      document.getElementById("hours");
+
+    const minutesElement =
+      document.getElementById("minutes");
+
+    const secondsElement =
+      document.getElementById("seconds");
+
+
+    function updateCountdown() {
+
+      const now = Date.now();
+
+      const difference = birthdayDate - now;
+
+
+      // Birthday time reached
+      if (difference <= 0) {
+
+        countdownScreen.style.display = "none";
+
+        birthdayScreen.classList.add("show");
+
+        document.title = "🎉 HAPPY BIRTHDAY TO ME! 🎂";
+
+        return;
+      }
+
+
+      const totalSeconds =
+        Math.floor(difference / 1000);
+
+
+      const days =
+        Math.floor(totalSeconds / 86400);
+
+      const hours =
+        Math.floor((totalSeconds % 86400) / 3600);
+
+      const minutes =
+        Math.floor((totalSeconds % 3600) / 60);
+
+      const seconds =
+        totalSeconds % 60;
+
+
+      daysElement.textContent =
+        String(days).padStart(2, "0");
+
+      hoursElement.textContent =
+        String(hours).padStart(2, "0");
+
+      minutesElement.textContent =
+        String(minutes).padStart(2, "0");
+
+      secondsElement.textContent =
+        String(seconds).padStart(2, "0");
+    }
+
+
+    // Start immediately
+    updateCountdown();
+
+
+    // Update every second
+    setInterval(updateCountdown, 1000);
+
+  </script>
+
+</body>
+</html>
